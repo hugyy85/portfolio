@@ -1,0 +1,14 @@
+{% extends "main.html" %}
+
+{% block success %}
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action active ">Результаты  - для более детальной информации нажмите на нужный номер</li>
+{% for key, value in dict.items %}
+    <ul class="list-group">
+        <a href="{{ key }}/" class="list-group-item list-group-item-action ">
+    {{ value.result }}
+  </a>
+
+    </ul>
+{% endfor %}
+{% endblock %}

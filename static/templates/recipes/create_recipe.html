@@ -1,0 +1,35 @@
+{% extends "recipes\base_recipes.html" %}
+
+{% block create_recipe %}
+
+<div class="container text-center">
+    <form method="post" enctype="multipart/form-data" class="">
+ <div class="form-group text-center">
+ <div class="col-sm-12">
+     {% csrf_token %}
+    <h4>Название рецепта</h4>
+    {{ form.recipe_name }}
+    <h4>Описание</h4>
+    {{ form.recipe_description }}
+    <h4>Игридиенты</h4>
+    {{ form.recipe_ingredients }}
+    <h4>Инструкция приготовления</h4>
+    {{ form.recipe_steps }}
+    <h4>Выберите тип блюда</h4>
+    {{ form.recipe_type_of_meal }}
+     <h4>Добавьте фотографию</h4>
+    {{ form.recipe_photo }}
+ </div>
+ </div>
+ <div class="form-group">
+ <div class="col-sm-offset-2 col-sm-12">
+ <button type="submit" id="submit" class="btn btn-primary">Отправить</button>
+ </div>
+ </div>
+ </form>
+
+
+
+</div>
+
+{% endblock %}

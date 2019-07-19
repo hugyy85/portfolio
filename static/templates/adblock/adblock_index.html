@@ -1,0 +1,27 @@
+{% extends "main.html" %}
+
+{% block adblock %}
+<div class="container">
+<br><br><br><br><br><br><br><br><br><br><br>
+
+			<h1 class="animated fadeInDown delay-07s text-center">Онлайн блокировщик мусора с сайтов
+                <p class="text-center text-muted">Просто вставьте интересующий вас сайт в меню ввода, например https://lenta.ru/news/2019/07/17/sukhoisuperjet100/</p>
+            </h1>
+
+
+    <form action="/adblock/block/" method="post" class="text-center">
+
+        {% csrf_token %}
+        {{ form }}
+
+        <br><button type="submit" class="btn btn-primary text-center">Посмотреть</button>
+
+    </form>
+
+    {% for line in text %}
+    <p class="top15">{{ line }}</p>
+    {% endfor %}
+
+
+</div>
+{% endblock %}

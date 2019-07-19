@@ -1,0 +1,30 @@
+{% extends "main.html" %}
+
+{% block upload %}
+
+
+<div class="container">
+<br><br><br><br><br><br><br><br><br><br><br>
+
+			<h1 class="animated fadeInDown delay-07s text-center">Отчет о звонках за месяц
+                <p class="text-center text-muted">Загрузите файлы с информацией по звонкам</p>
+            </h1>
+		</div>
+
+<div class="container text-center">
+<form action="upload_file/" method="post" enctype="multipart/form-data" class="text-center">
+ <div class="form-group text-center">
+
+     {% csrf_token %}
+     <h4 class="text-center">{{ form.file }}</h4>
+      <button type="submit" id="submit" class="btn btn-primary text-center">Отправить</button>
+ </div>
+
+
+ </form>
+</div>
+<div class="container text-center">
+    <h5>Для проверки, можете загрузить <a href="/static/ЛС254392207369_номер79130112504_с_01062019_по_25062019.html" download>этот файл</a></h5>
+</div>
+
+{% endblock %}

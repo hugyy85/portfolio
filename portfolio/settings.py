@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'phone_calls',
+    'recipe',
+    'adblock',
 
 ]
 
@@ -55,7 +58,8 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\Anton.b.PROXIMA\Desktop\Python\work\portfolio\static'],
+        'DIRS': [r'C:\Users\Anton.b.PROXIMA\Desktop\Python\work\portfolio\static',
+                 r'C:\Users\Anton.b.PROXIMA\Desktop\Python\work\portfolio\static\templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

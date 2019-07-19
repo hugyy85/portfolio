@@ -1,0 +1,21 @@
+{% extends "main.html" %}
+
+{% block base_recipes %}
+
+
+<div class="container text-left">
+<br>
+
+    <h1 class="animated fadeInDown delay-07s text-left"><a href="/recipe/">Домашние рецепты</a>
+                <p class="text-muted"><small>Лучшие рецепты со всего мира</small></p>
+            </h1>
+    <a href="{% url 'create-recipe' %}">
+    <button type="submit" id="submit" class="btn btn-primary">Создать рецепт</button></a>
+		</div>
+
+</div>
+<br><br>
+{% block create_recipe %}{% endblock %}
+{% block recipes %}{% endblock %}
+{% block get-recipes %}{% endblock %}
+{% endblock %}

@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from portfolio.view import index
 from django.conf import settings
 from django.conf.urls.static import static
@@ -22,4 +22,7 @@ from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-]
+    path('phone_calls/', include('phone_calls.urls'), name='phone_calls'),
+    path('recipe/', include('recipe.urls'), name='recipe'),
+    path('adblock/', include('adblock.urls'), name='adblock'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

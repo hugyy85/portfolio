@@ -1,0 +1,15 @@
+{% extends "main.html" %}
+
+{% block error %}
+<div class="text-center">
+  <img src="\static\images\err.jpg" height="300" width="250" class="rounded" alt="Досада">
+</div>
+
+<div class="jumbotron jumbotron-fluid">
+  <div class="container text-center">
+    <h1 class="display-4">Что-то пошло не так</h1>
+    <p class="lead">Добавьте файл формата .html из личного кабинета МТС</p>
+      <a href="/phone_calls/"><button type="button" class="btn btn-primary btn-lg">Попробовать снова</button></a>
+  </div>
+</div>
+{% endblock %}

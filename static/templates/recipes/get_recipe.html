@@ -1,0 +1,39 @@
+{% extends "recipes/base_recipes.html" %}
+{% load staticfiles %}
+
+{% block get-recipes %}
+
+
+<div class="container">
+<div class="col-lg-12 text-center">
+          <h4>{{ recipe.recipe_created }}</h4>
+          <h1>{{ recipe.recipe_name }}</h1>
+          <div class="by"><i class="fa fa-user" aria-hidden="true"></i> {{ recipe.recipe_author }}</div>
+        </div>
+    <div class="col-lg-12">
+
+
+          <img src="{{ recipe.recipe_photo.url }}" class="rounded mx-auto d-block" width="620" height="415" alt="">
+
+        <p>{{ recipe.recipe_description }}</p>
+
+          <div class="ingredient-direction">
+            <div class="row">
+              <div class="col-lg-6 col-sm-6">
+                <h3>Ингридиенты</h3>
+                <ul class="ingredients">
+                    {{ ingredients|unordered_list }}
+                </ul>
+              </div>
+              <div class="col-lg-6 col-sm-6">
+                <h3>Инструкция приготовления</h3>
+                  {% for instruction in instructions %}
+                <ol class="directions">
+                    {{ instruction }}
+                </ol>
+                  {% endfor %}
+              </div>
+            </div>
+          </div>
+
+{% endblock %}

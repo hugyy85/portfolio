@@ -1,0 +1,38 @@
+{% extends "recipes/base_recipes.html" %}
+{% load staticfiles %}
+
+{% block recipes %}
+
+
+<div class="container">
+
+  <div class="card-deck">
+    {% for recipe in recipes %}
+    <div class="col-lg-4">
+
+
+    <div class="card mt-1">
+
+     <img src="{{ recipe.recipe_photo.url }}" class="card-img-top" height="300">
+
+    <div class="card-body">
+
+      <h5 class="card-title">{{ recipe.recipe_name }}</h5>
+    <p class="card-text">{{ recipe.recipe_description|truncatewords:7 }}</p>
+    <a href="{% url 'get-recipe' recipe.id %}" class="btn btn-primary">Подбробее</a>
+
+      </div>
+
+
+
+    </div>
+  </div>
+    <br><br><br>
+   {% endfor %}
+</div>
+</div>
+
+
+
+
+{% endblock %}
