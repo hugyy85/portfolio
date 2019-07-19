@@ -25,4 +25,7 @@ urlpatterns = [
     path('phone_calls/', include('phone_calls.urls'), name='phone_calls'),
     path('recipe/', include('recipe.urls'), name='recipe'),
     path('adblock/', include('adblock.urls'), name='adblock'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
