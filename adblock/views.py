@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, redirect
 from django.template.context_processors import csrf
 from .forms import SiteForm
 from adblock.read_html import FindText
@@ -10,7 +10,7 @@ def index(request):
     args.update(csrf(request))
     if request.session.get('text'):
         args.setdefault('text', request.session['text'])
-    return render_to_response('adblock/adblock_index.html', args)
+    return render(request, 'adblock/adblock_index.html', args)
 
 
 def block(request):

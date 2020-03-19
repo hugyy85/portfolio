@@ -58,8 +58,8 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [r'C:\Users\Anton.b.PROXIMA\Desktop\Python\work\portfolio\static',
-                 r'C:\Users\Anton.b.PROXIMA\Desktop\Python\work\portfolio\static\templates'],
+        'DIRS': [f'{os.getcwd()}/static',
+                 f'{os.getcwd()}/static/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

@@ -1,11 +1,11 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, redirect
 from recipe.models import User, Recipe
 from recipe.forms import CreationFormRecipe
 from django.template.context_processors import csrf
 
 
 def index(request):
-    return render_to_response('recipes/index.html', {'recipes': Recipe.objects.all(),
+    return render(request, 'recipes/index.html', {'recipes': Recipe.objects.all(),
                                                      'users': User.objects.all(),
                                                      })
 
@@ -14,7 +14,7 @@ def get_recipe(request, recipe_id):
     recipe = Recipe.objects.get(id=recipe_id)
     ingredients = recipe.recipe_ingredients.split('\n')
     instructions = recipe.recipe_steps.split('\n')
-    return render_to_response('recipes/get_recipe.html', {'recipe': recipe,
+    return render(request, 'recipes/get_recipe.html', {'recipe': recipe,
                                                           'ingredients': ingredients,
                                                           'instructions': instructions,
                                                           })
@@ -45,4 +45,4 @@ def create_recipe(request):
     else:
         form = CreationFormRecipe()
 
-    return render_to_response('recipes/create_recipe.html', args)
+    return render(request, 'recipes/create_recipe.html', args)

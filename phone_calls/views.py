@@ -1,4 +1,4 @@
-from django.shortcuts import render_to_response, redirect
+from django.shortcuts import render, redirect
 from .forms import UploadFileForm
 from django.template.context_processors import csrf
 from .query import how_long_month, parse_dict, parse_phones
@@ -11,7 +11,7 @@ def show_details(request, number):
     data_storage = json.loads(request.session['details'])
     result = parse_dict(data_storage, str(number))
 
-    return render_to_response('details.html', context={'lines': result})
+    return render(request, 'details.html', context={'lines': result})
 
 
 def upload_file(request):
@@ -34,7 +34,7 @@ def upload_file(request):
             return redirect('/phone_calls/success/url/')
     else:
         form = UploadFileForm()
-    return render_to_response('upload.html', args)
+    return render(request, 'upload.html', args)
 
 
 def start(request):
@@ -44,14 +44,14 @@ def start(request):
     args = {'form': UploadFileForm}
     args.update(csrf(request))
 
-    return render_to_response('upload.html', args)
+    return render(request, 'upload.html', args)
 
 
 def success(request):
     data_storage = json.loads(request.session['details'])
-    return render_to_response('success.html', context={'dict': data_storage})
+    return render(request, request, 'success.html', context={'dict': data_storage})
 
 
 def error(requset):
-    return render_to_response('error.html')
+    return render(request, 'error.html')
 
